@@ -19,7 +19,7 @@ You need three steps to open ALS.
     Note: SkyWalking OAP service is at skywalking namespace, and the port of gRPC service is 11800
     
 2. (Default is ACTIVATED) Activate SkyWalking [envoy receiver](../backend/backend-receivers.md). 
-3. Active ALS k8s-mesh analysis, set system env variable `SW_ENVOY_METRIC_ALS_HTTP_ANALYSIS`=`k8s-mesh`
+3. Active ALS analyzer, there are two available analyzers, `k8s-mesh` and `mx-mesh`, `k8s-mesh` will use the metadata from Kubernetes cluster, `mx-mesh` will use the Envoy metadata exchange mechanism to get the service name, etc., set system env variable `SW_ENVOY_METRIC_ALS_HTTP_ANALYSIS=k8s-mesh`
 ```yaml
 envoy-metric:
   selector: ${SW_ENVOY_METRIC:default}
